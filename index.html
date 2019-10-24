@@ -20,7 +20,31 @@
       fetch('ajax_sample.json')
         .then(res => res.json())
         .then(data => data.map(c => c.code))
-        .then(data => document.querySelector(".content").innerText = data);
+        .then(codes => {
+          const a = codes.map((item) => {
+            console.log('demo', item);
+            return item + " extra";
+          })
+
+          console.log('the returned values of a', a);
+
+          document.querySelector(".content").innerText = thing)
+          return codes;
+          
+          for(let i = 0; i < 50; i ++){
+          const selectNumber = getRandomIntInclusive(0, 242);
+          let el = document.createElement("li");
+          el.innerText = nameArray[selectNumber];
+
+          function getRandomIntInclusive(min, max) {
+          min = Math.ceil(min);
+          max = Math.floor(max);
+          return Math.floor(Math.random() * (max - min + 1)) + min;
+
+        instructions.appendChild(el);
+          }
+        }
+        
     }
     replaceList();
   </script>
