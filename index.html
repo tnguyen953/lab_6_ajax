@@ -21,17 +21,39 @@
         .then(res => res.json())
         .then(data => data.map(c => c.code))
         .then(codes => {
-          for(let i = 0; i < 50; i ++){
-          const selectNumber = getRandomIntInclusive(0, 242);
-          let el = document.createElement("li");
-          el.innerText = nameArray[selectNumber];
-          instructions.appendChild(el);
+          function clickMe() {
+            const json = sessionStorage.getItem('countries_arr');
+            const list = JSON.parse(json);
+
+            const nameArray = list.map((i) => i.name);
+            
+            const instructions = document.querySelector('.instructions');
+            instructions.innerHTML = '';
+      
+            for(let i = 0; i < 50; i ++){
+              const selectNumber = getRandomIntInclusive(0, 242);
+              let el = document.createElement("li");
+              el.innerText = nameArray[selectNumber];
+
+              instructions.appendChild(el);
+            }};
 
           function getRandomIntInclusive(min, max) {
           min = Math.ceil(min);
           max = Math.floor(max);
           return Math.floor(Math.random() * (max - min + 1)) + min;
-          }}
+          }
+
+         // const a = codes.map((item) => {
+          //  console.log('demo', item);
+         //   return item + " extra";
+        //  })
+
+         // console.log('the returned values of a', a);
+
+          //document.querySelector(".content").innerText = thing)
+         // return codes;
+
         }
         
     }
