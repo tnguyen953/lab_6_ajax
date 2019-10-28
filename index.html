@@ -21,9 +21,7 @@
         .then(res => res.json())
         .then(data => data.map(c => c.code))
         .then(codes => {
-          const nameArray = codes.map((item) => 
-          return item.name;
-            })
+          const nameArray = codes.map((item) => item.name);
 
           const instructions = document.querySelector('.instructions').innerText = codes;
           instructions.innerHTML = '';
@@ -44,7 +42,6 @@
 
           return codes;
         }
-        
     }
     replaceList();
   </script>
