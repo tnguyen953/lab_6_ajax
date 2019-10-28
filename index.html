@@ -22,7 +22,7 @@
         .then(data => data.map(c => c.code))
         .then(codes => {
           const nameArray = codes.map((item) => 
-          return item + "  ";
+          return item.name;
             })
 
           const instructions = document.querySelector('.instructions').innerText = codes;
@@ -41,7 +41,7 @@
           max = Math.floor(max);
           return Math.floor(Math.random() * (max - min + 1)) + min;
           }
-          
+
           return codes;
         }
         
