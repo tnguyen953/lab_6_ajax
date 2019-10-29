@@ -21,8 +21,8 @@
           .then(res => res.json())
           .then(data => data.map(c => c.code + " " + c.name))
           .then(data => {
-            const instructions = document.querySelector('.instructions').innerText = data
-            instructions.innerHTML = '';
+            const instructions = document.querySelector('.instructions')
+            instructions.innerHTML = ''
         
             for (let i = 0; i < 50; i++) {
             const selectNumber = getRandomIntInclusive(0, 242);
