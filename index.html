@@ -17,33 +17,29 @@
   </div>
   <script>
     function loadData() {
-      fetch('ajax_sample.json')
-        .then(res => res.json())
-        .then(data => data.map(c => c.code))
-        .then(codes => {
-          const nameArray = codes.map((item) => item.name);
-          const instructions = document.querySelector('.instructions').innerText = codes;
-          instructions.innerHTML = '';
-
-          for(let i = 0; i < 50; i ++){
+        fetch('ajax_sample.json')
+          .then(res => res.json())
+          .then(data => data.map(c => c.code + " " + c.name))
+          .then(data => {
+            const instructions = document.querySelector('.instructions').innerText = data
+            instructions.innerHTML = '';
+        
+            for (let i = 0; i < 50; i++) {
             const selectNumber = getRandomIntInclusive(0, 242);
             let el = document.createElement("li");
             el.innerText = nameArray[selectNumber];
 
             instructions.appendChild(el);
-            }
-        
-          function getRandomIntInclusive(min, max) {
-          min = Math.ceil(min);
-          max = Math.floor(max);
-          return Math.floor(Math.random() * (max - min + 1)) + min;
-          }
-
-          return codes;
-        }
+          };
+        })
     }
-    replaceList();
-  </script>
+
+   function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+  }
+</script>
 </body>
 
 </html>
